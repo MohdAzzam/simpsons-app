@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="cards">
+    <div>
+        <a href="/favorite-quotes">Fav Qoute</a>
+        <%data.forEach(item=>{%>
+            <div class="card">
+                <form action="/update/<%=item.id%>?_method=PUT%>" method="post">
+                    <input type="text" name="image" disabled value="<%=item.image%>">
+                    <input type="text" name="character" value="<%=item.character%>">
+                    <input type="text" name="quote" value="<%=item.quote%>">
+                    <input type="text" name="characterDirection"  value="<%=item.characterdirection%>">
+                    <button>update</button>
+                </form>
+            </div>
+            <%})%>
+    </div>
+</body>
+
+</html>

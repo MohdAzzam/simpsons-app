@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <nav>
+            <a href="/favorite-quotes">Fav Qoute</a>
+
+        </nav>
+        <div class="cards">
+            <%data.forEach(item=>{%>
+            <div class="card">
+                <img src="<%=item.image%>" alt="" width="200" height="200">
+                <h1><%=item.character%></h1>
+                <p> <%=item.quote%></p>
+                <p><%=item.characterDirection%></p>
+                <form action="/addToFav" method="post">
+                    <input type="text" name="image" hidden  value="<%=item.image%>">
+                    <input type="text" name="character" hidden value="<%=item.character%>" >
+                    <input type="text" name="quote" hidden value="<%=item.quote%>">
+                    <input type="text" name="characterDirection" hidden value="<%=item.characterDirection%>">
+                    <button class="add">Submit</button>
+                </form>
+            </div>
+            <%})%>
+
+        </div>
+    </div>
+</body>
+</html>
